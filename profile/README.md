@@ -1,4 +1,4 @@
-# 🎬 BudgetFlix
+![BudgetFlix](https://raw.githubusercontent.com/your-org/.github/main/profile/solo_logo_big.png)
 
 > Build your own streaming platform.
 
