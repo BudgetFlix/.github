@@ -1,45 +1,45 @@
-![BudgetFlix](https://raw.githubusercontent.com/budgetflix/.github/main/profile/solo_logo_big.png)
+<img src="https://raw.githubusercontent.com/budgetflix/.github/main/assets/logo_and_name_big.png" width="600" />
 
-> Build your own streaming platform.
+ ## Build your own streaming platform.
 
----
+![status](https://img.shields.io/badge/status-under_developing-red)
 
-## ✨ What is BudgetFlix?
+##  What is BudgetFlix?
 
 BudgetFlix is a **self-hostable streaming platform** designed for developers who want full control over their own media system.
 
 Instead of relying on external services, BudgetFlix allows you to:
 
-* 🎬 Host your own content
-* ⚙️ Run your own infrastructure
-* 🔐 Control access and streaming
-* 🧩 Customize the platform to your needs
+*  Host your own content
+*  Run your own infrastructure
+*  Control access and streaming
+*  Customize the platform to your needs
 
 ---
 
-## 🎯 Vision
+##  Vision
 
 > Everyone should be able to run their own “Netflix”.
 
 BudgetFlix is built to become:
 
-* 🏠 **Self-hosted** → run it on your own server / VPS
-* 🧱 **Modular** → use only what you need
-* ⚡ **Efficient** → optimized streaming architecture
-* 🛠 **Developer-friendly** → easy to understand, extend, and modify
+* **Self-hosted** → run it on your own server / VPS
+* **Modular** → use only what you need
+*  **Efficient** → optimized streaming architecture
+* **Developer-friendly** → easy to understand, extend, and modify
 
 ---
 
-## 🧱 Architecture
+##  Architecture
 
 The platform is split into multiple parts:
 
-### 🌐 Frontend
+###  Frontend
 
 * Next.js application
 * Modular package system (API, features, UI)
 
-### ⚙️ Backend *(separate repository)*
+###  Backend *(separate repository)*
 
 * API (authentication, stream access)
 * Streaming pipeline
@@ -47,7 +47,7 @@ The platform is split into multiple parts:
 
 ---
 
-## 🧩 Philosophy
+##  Philosophy
 
 We believe in:
 
@@ -57,7 +57,7 @@ We believe in:
 
 ---
 
-## 🚀 What makes it different?
+##  What makes it different?
 
 * No black-box streaming
 * No external dependencies required
@@ -66,7 +66,7 @@ We believe in:
 
 ---
 
-## 🔧 Use Cases
+##  Use Cases
 
 * Personal media server
 * Private streaming platform
@@ -75,7 +75,7 @@ We believe in:
 
 ---
 
-## 🗺 Roadmap
+##  Roadmap
 
 * One-command setup (Docker / scripts)
 * Authentication & user system
@@ -85,14 +85,14 @@ We believe in:
 
 ---
 
-## 📦 Repositories
+##  Repositories
 
 * `budgetflix` → frontend + shared packages
 * `budgetflix-backend` → API, streaming, workers
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 BudgetFlix is being built with scalability in mind.
 
@@ -104,7 +104,7 @@ If you contribute:
 
 ---
 
-## 🧠 Final Note
+##  Final Note
 
 This is not just a project.
 
