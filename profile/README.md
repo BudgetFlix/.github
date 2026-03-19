@@ -1,4 +1,6 @@
-<img src="https://raw.githubusercontent.com/budgetflix/.github/main/assets/logo_and_name_big.png" width="600" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/budgetflix/.github/main/assets/logo_and_name_big.png" width="600" />
+</p>
 
  ## Build your own streaming platform.
 
