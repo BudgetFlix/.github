@@ -2,8 +2,9 @@
 <br />
 <div align="center">
 
-<h3 align="center">BudgetFlix</h3>
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/budgetflix/.github/main/assets/logo_and_name_big.png" width="600" />
+</p>
   <p align="center">
     Modern media automation and content processing ecosystem.
     <br />
@@ -133,42 +134,6 @@ The ecosystem is intentionally designed to support:
 
 ---
 
-# Getting Started
-
-## Prerequisites
-
-Before starting, make sure you have installed:
-
-* Docker
-* Docker Compose
-* Git
-* Go (for worker development)
-* Node.js (for frontend applications)
-* Java 21+ (for legacy services)
-
----
-
-## Installation
-
-Clone the organization repositories:
-
-```bash
-git clone https://github.com/BudgetFlix/<repository-name>.git
-```
-
-Enter the project directory:
-
-```bash
-cd <repository-name>
-```
-
-Start services with Docker:
-
-```bash
-docker compose up -d
-```
-
----
 
 # Projects
 
@@ -255,5 +220,5 @@ Distributed under the MIT License.
 ---
 
 <div align="center">
-Built with ❤️ by BudgetFlix
+Built with ❤️ by PeterKokenyessy
 </div>
