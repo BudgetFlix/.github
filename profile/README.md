@@ -1,186 +1,301 @@
-<!-- PROJECT LOGO -->
-<br />
+<!-- HERO -->
 <div align="center">
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/budgetflix/.github/main/assets/logo_and_name_big.png" width="600" />
+  <img
+    src="https://raw.githubusercontent.com/budgetflix/.github/main/assets/logo_and_name_big.png"
+    width="620"
+    alt="BudgetFlix"
+  />
 </p>
-  <p align="center">
-    Modern media automation and content processing ecosystem.
-    <br />
-    <br />
-    <a href="https://github.com/BudgetFlix">View Organization</a>
-    ·
-    <a href="https://github.com/BudgetFlix/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/BudgetFlix/issues">Request Feature</a>
-  </p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Early%20Development-E50914?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Architecture-Service%20Oriented-111827?style=for-the-badge" />
+</p>
+
+<h3>
+  Modular streaming, media processing, and automation ecosystem.
+</h3>
+
+<p align="center">
+  BudgetFlix is an early-stage platform focused on scalable media workflows,
+  queue-driven processing, streaming infrastructure, and self-hosted tooling.
+</p>
+
+<br>
+
 </div>
 
----
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>📚 Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#architecture">Architecture</a></li>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#development-philosophy">Development Philosophy</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
 
----
+# Tech Stack
 
-# About The Project
+## Backend & Processing
 
-BudgetFlix is a modular media automation ecosystem focused on scalable video uploading, processing, scheduling, and platform automation.
+<p>
 
-The organization is designed around lightweight services and workers that can operate independently while communicating through messaging systems such as RabbitMQ.
+<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
+<img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" />
+<img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white" />
+<img src="https://img.shields.io/badge/FFmpeg-007808?style=for-the-badge&logo=ffmpeg&logoColor=white" />
 
-The long-term goal is to build a complete self-hosted media pipeline platform with:
+</p>
 
-- Media uploading
-- Distributed workers
-- Video processing
-- Dashboard management
-- Monitoring & analytics
-- Scheduling systems
-- Platform integrations
-- Automation tooling
+## Frontend
 
-The ecosystem is currently in active early-stage development.
+<p>
+
+<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/Tamagui-24A1C1?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Tauri-FFC131?style=for-the-badge&logo=tauri&logoColor=black" />
+
+</p>
+
+## Infrastructure
+
+<p>
+
+<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+<img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" />
+
+</p>
 
 ---
 
-## Architecture
+# Overview
 
-The platform follows a service-oriented architecture.
+BudgetFlix is a modular media ecosystem built around lightweight services, isolated workers, and queue-based communication.
+
+The platform currently focuses on:
+
+- media uploads
+- distributed processing
+- HLS video generation
+- streaming workflows
+- infrastructure orchestration
+- automation tooling
+
+The architecture is intentionally designed so every service can evolve independently while still fitting into a larger scalable system.
+
+---
+
+# Ecosystem Architecture
 
 ```mermaid
-flowchart TD
+flowchart LR
 
-    UI[Desktop / UI App]
-    API[API / Gateway]
+    USER[User]
+    UI[Frontend / Desktop Apps]
+    API[API Layer]
     MQ[RabbitMQ]
 
-    W1[Worker A]
-    W2[Worker B]
+    WORKER[Media Workers]
+    STORAGE[(Media Storage)]
+    STREAM[HLS Streaming]
 
-    EXT[External Platforms]
-
+    USER --> UI
     UI --> API
     API --> MQ
 
-    MQ --> W1
-    MQ --> W2
+    MQ --> WORKER
+    WORKER --> STORAGE
 
-    W1 --> EXT
-    W2 --> EXT
-````
-
-The ecosystem is intentionally designed to support:
-
-* Horizontal scaling
-* Service isolation
-* Queue-based processing
-* Future cloud deployments
-* Local self-hosted development
+    STORAGE --> STREAM
+    STREAM --> USER
+```
 
 ---
 
-## Built With
+# Repositories
 
-<div align="left">
-
-### Backend
-
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![Java](https://img.shields.io/badge/Java-E76F00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-
-### Frontend
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![DaisyUI](https://img.shields.io/badge/DaisyUI-5A0EF8?style=for-the-badge&logo=daisyui&logoColor=white)
-![Tauri](https://img.shields.io/badge/Tauri-FFC131?style=for-the-badge&logo=tauri&logoColor=black)
-
-### Infrastructure
-
-![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-
-</div>
+| Repository | Description |
+| --- | --- |
+| [`frontend`](https://github.com/BudgetFlix/frontend) | Next.js streaming frontend monorepo |
+| [`api`](https://github.com/BudgetFlix/api) | Spring Boot backend and upload orchestration |
+| [`worker`](https://github.com/BudgetFlix/worker) | Go-based FFmpeg media processing worker |
+| [`media-uploader`](https://github.com/BudgetFlix/media-uploader) | Tauri desktop uploader |
+| [`infra`](https://github.com/BudgetFlix/infra) | Docker infrastructure and orchestration |
 
 ---
 
+# Repository Roles
 
-# Projects
+## [`frontend`](https://github.com/BudgetFlix/frontend)
 
-Current and planned repositories inside the ecosystem:
+<p>
 
-| Repository       | Description                         |
-| ---------------- | ----------------------------------- |
-| `worker`         | Distributed media processing worker |
-| `media-uploader` | Desktop uploader application        |
-| `dashboard`      | Web management dashboard            |
-| `gateway`        | API gateway and routing             |
-| `monitoring`     | Metrics and monitoring services     |
-| `shared`         | Shared contracts and utilities      |
+<img src="https://img.shields.io/badge/Next.js-14-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/React-18-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+<img src="https://img.shields.io/badge/HLS.js-Video-FF5A5F?style=flat-square" />
+<img src="https://img.shields.io/badge/Tamagui-UI-24A1C1?style=flat-square" />
+
+</p>
+
+Streaming frontend foundation focused on:
+
+- movie browsing
+- HLS playback
+- reusable UI architecture
+- scalable frontend packages
+
+---
+
+## [`api`](https://github.com/BudgetFlix/api)
+
+<p>
+
+<img src="https://img.shields.io/badge/Java-17-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
+<img src="https://img.shields.io/badge/Spring_Boot-3.1-6DB33F?style=flat-square&logo=springboot&logoColor=white" />
+<img src="https://img.shields.io/badge/RabbitMQ-AMQP-FF6600?style=flat-square&logo=rabbitmq&logoColor=white" />
+<img src="https://img.shields.io/badge/Maven-Build-C71A36?style=flat-square&logo=apachemaven&logoColor=white" />
+
+</p>
+
+Backend orchestration layer responsible for:
+
+- upload job creation
+- RabbitMQ publishing
+- movie metadata
+- stream path lookup
+- processing state management
+
+---
+
+## [`worker`](https://github.com/BudgetFlix/worker)
+
+<p>
+
+<img src="https://img.shields.io/badge/Go-1.24-00ADD8?style=flat-square&logo=go&logoColor=white" />
+<img src="https://img.shields.io/badge/FFmpeg-HLS-007808?style=flat-square&logo=ffmpeg&logoColor=white" />
+<img src="https://img.shields.io/badge/RabbitMQ-Consumer-FF6600?style=flat-square&logo=rabbitmq&logoColor=white" />
+<img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square&logo=docker&logoColor=white" />
+
+</p>
+
+Distributed media processing worker with:
+
+- FFmpeg HLS pipelines
+- filesystem job lifecycle
+- queue acknowledgement handling
+- graceful shutdown support
+
+---
+
+## [`media-uploader`](https://github.com/BudgetFlix/media-uploader)
+
+<p>
+
+<img src="https://img.shields.io/badge/Tauri-Desktop-FFC131?style=flat-square&logo=tauri&logoColor=black" />
+<img src="https://img.shields.io/badge/React-UI-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Rust-Native-000000?style=flat-square&logo=rust&logoColor=white" />
+<img src="https://img.shields.io/badge/SFTP-Upload-2563EB?style=flat-square" />
+
+</p>
+
+Desktop-first upload tool featuring:
+
+- local media uploads
+- SFTP transfer flow
+- API integration
+- native desktop runtime
+
+---
+
+## [`infra`](https://github.com/BudgetFlix/infra)
+
+<p>
+
+<img src="https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white" />
+<img src="https://img.shields.io/badge/RabbitMQ-Infrastructure-FF6600?style=flat-square&logo=rabbitmq&logoColor=white" />
+<img src="https://img.shields.io/badge/Linux-Environment-FCC624?style=flat-square&logo=linux&logoColor=black" />
+<img src="https://img.shields.io/badge/GitHub_Actions-CI/CD-2088FF?style=flat-square&logo=githubactions&logoColor=white" />
+
+</p>
+
+Infrastructure repository containing:
+
+- Docker Compose environments
+- shared networking
+- queue infrastructure
+- deployment workflow foundations
+
+---
+
+# Processing Flow
+
+```mermaid
+flowchart LR
+
+    A[Uploader / Frontend]
+    B[API]
+    C[RabbitMQ]
+    D[Worker]
+    E[FFmpeg HLS Output]
+    F[Streaming Client]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+```
+
+---
+
+# Design Principles
+
+BudgetFlix is being built around a few core ideas:
+
+- small isolated services
+- queue-driven workflows
+- reproducible local infrastructure
+- practical engineering over overengineering
+- scalable architecture without early complexity
+- self-hosted friendly deployments
+- incremental development
+
+The goal is to build systems that remain understandable as the platform grows.
 
 ---
 
 # Roadmap
 
-* [x] Initial organization setup
-* [x] RabbitMQ-based communication
-* [x] Dockerized development environment
-* [ ] Go worker migration
-* [ ] Media processing pipeline
-* [ ] Dashboard UI
-* [ ] Upload management
-* [ ] Video metadata management
-* [ ] Distributed task orchestration
-* [ ] Monitoring stack
-* [ ] Multi-platform integrations
-* [ ] Authentication system
-* [ ] CI/CD pipelines
+- [x] RabbitMQ messaging
+- [x] Dockerized local infrastructure
+- [x] Initial upload pipeline
+- [x] HLS media processing
+- [x] Frontend monorepo foundation
+- [ ] Streaming authentication
+- [ ] Monitoring and metrics
+- [ ] Distributed worker scaling
+- [ ] Upload dashboards
+- [ ] Search and metadata systems
+- [ ] Multi-environment deployments
+- [ ] Kubernetes support
+- [ ] Automated media workflows
 
 ---
 
-# Development Philosophy
+# Development Status
 
-BudgetFlix is being built with a focus on:
+BudgetFlix is currently in an early but functional foundation stage.
 
-* Simplicity over unnecessary abstraction
-* Service isolation
-* Queue-driven architecture
-* Fast local development
-* Self-hosting support
-* Scalable infrastructure
-* Incremental migration from legacy systems
+Core architecture pieces already exist:
 
-The project heavily emphasizes practical engineering and iterative development.
+- frontend
+- backend API
+- upload tooling
+- queue infrastructure
+- media processing pipeline
+
+The current focus is improving integration between services while expanding the streaming and automation workflow.
 
 ---
 
@@ -188,37 +303,26 @@ The project heavily emphasizes practical engineering and iterative development.
 
 Contributions, ideas, and feedback are welcome.
 
-If you'd like to contribute:
-
-1. Fork the repository
-2. Create your feature branch
-
 ```bash
-git checkout -b feature/amazing-feature
+git checkout -b feature/my-feature
+git commit -m "Add my feature"
+git push origin feature/my-feature
 ```
 
-3. Commit your changes
-
-```bash
-git commit -m "Add amazing feature"
-```
-
-4. Push to the branch
-
-```bash
-git push origin feature/amazing-feature
-```
-
-5. Open a Pull Request
+Then open a Pull Request.
 
 ---
 
-# License
+# Philosophy
 
-Distributed under the MIT License.
+> Build the pipeline first.  
+> Make it reliable.  
+> Scale it later.
 
 ---
 
 <div align="center">
-Built with ❤️ by PeterKokenyessy
+
+Built by <b>PeterKokenyessy</b>
+
 </div>
